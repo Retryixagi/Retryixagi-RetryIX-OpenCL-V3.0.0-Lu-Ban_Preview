@@ -60,7 +60,7 @@ retryix_production/
 ├── examples/              # 示例程序 | Examples
 ├── lib/                   # 編譯輸出庫文件 | Output libraries
 ├── bin/                   # 編譯輸出可執行文件 | Output executables
-├── build.bat              # 一鍵編譯腳本 | Build script
+├── build_modular.bat              # 一鍵編譯腳本 | Build script
 └── README.md              # 本文件 | This file
 ```
 
@@ -324,3 +324,4 @@ This project is licensed under the MIT License, permitting free use, modificatio
 
 
 **RetryIX v3.0.0** - 超越硬體限制的 GPU 模擬層 | GPU abstraction beyond hardware limits 🚀
+
