@@ -158,6 +158,22 @@ bin\stress_test_128bit_atomic.exe
 
 ---
 
+### 🧭 CPU 能力與執行條件｜CPU capabilities & runtime requirements
+
+**中文（簡述）：**
+- 快路徑（高效能）依賴 CPU 對 128-bit 原子比較交換的原生支援（x86_64 平台為 CMPXCHG16B；ARM 平台則需 ARMv8.x 的 128-bit CAS 指令／pair-CAS 支援，例如 LDAXP/STXP、CASP）。
+- 若目標處理器沒有這類原生 128-bit CAS，RetryIX 會自動回退到安全但較慢的軟體實作（spinlock / pair-CAS 軟體路徑），功能仍可用但效能會降低。
+- 256-bit 運算目前沒有通用的單指令硬體支援；RetryIX 以 pair-CAS / 軟體原子實作來正確實現 256-bit 原子語意。
+- 建議：若要達到最佳效能，請在 x86_64 平台使用支援 CMPXCHG16B 的現代 CPU（大多數 Intel/AMD x64 CPU 都支援），或在 ARM 平台選擇支援 128-bit CAS 的 ARMv8.1+ / v8.2+ CPU。
+
+**English (short):**
+- The fast path (high-throughput) requires native 128-bit compare-and-swap support on the CPU. On x86_64 this is CMPXCHG16B; on ARM it requires 128-bit CAS/pair-CAS support (LDAXP/STXP or CASP available in newer ARMv8.x CPUs).
+- If the CPU lacks native 128-bit CAS, RetryIX automatically falls back to a safe software implementation (spinlock or software pair-CAS), which preserves correctness but runs slower.
+- There is no single, widely-available hardware 256-bit CAS; RetryIX implements correct 256-bit atomics via pair‑CAS and software fallback.
+- Recommendation: for peak performance use modern x86_64 CPUs with CMPXCHG16B (most Intel/AMD 64-bit processors) or ARMv8.1+/v8.2+ parts that expose 128-bit CAS support. Compiler toolchains (GCC/Clang/MSVC) provide matching intrinsics/lowering (e.g., __atomic_compare_exchange_n or _InterlockedCompareExchange128).
+
+---
+
 ### 4️⃣ GPU ↔ Network 零拷貝｜Zero-Copy GPU ↔ Network
 
 **中文：**
@@ -244,3 +260,44 @@ int main() {
 
 **RetryIX v3.0 — Software-defined GPU capability beyond all hardware limits.**  
 **RetryIX v3.0 — 軟體定義 GPU，突破所有硬體上限。**
+ined GPU capability beyond hardware
+limits.**
+bat            # full library
+```
+
+### Run Tests
+All tests expected to pass with 17–23M ops/sec.
+
+### License
+MIT License.
+
+---
+
+**RetryIX v3.0 — Software-defined GPU capability beyond hardware limits.**
+
+t            # full library
+```
+
+### Run Tests
+All tests expected to pass with 17–23M ops/sec.
+
+### License
+MIT License.
+
+---
+
+**RetryIX v3.0 — Software-defined GPU capability beyond hardware limits.**e.org/licenses/MIT
+
+---
+
+
+## 🔗 相關文件 | Related Files
+
+- `CHANGELOG_V7.md`: 詳細更新日誌 | Changelog
+- `PYTORCH_INTEGRATION_FINAL_REPORT.md`: PyTorch 集成報告 | PyTorch integration
+- `README_RETRYIX_V7.md`: v7 版本說明 | v7 release notes
+
+---
+
+
+**RetryIX v3.0.0** - 超越硬體限制的 GPU 模擬層 | GPU abstraction beyond hardware limits 🚀
