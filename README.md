@@ -1,48 +1,246 @@
-# RetryIX v3.0.0-preview "Lu Ban"
 
-> **License: MIT License**\
-> Released under the MIT License. Free for open‑source and commercial
-> use with attribution.
+# RetryIX v3.0.0-preview “Lu Ban” (魯班) — Full Bilingual README
 
-------------------------------------------------------------------------
+> **License: MIT License｜MIT 授權**  
+> Released under the MIT License. Free for open-source and commercial use with attribution.  
+> 本專案採 MIT 授權，可自由使用於開源與商業用途，需保留版權宣告。
 
-# 🇨🇳 中文版本
+---
 
-## 🔥 概要
-
-RetryIX v3.0.0 是一套 **完全原創、非 wrapper** 的 OpenCL-style
-計算與記憶體系統。其核心目標是以跨廠商、跨硬體拓撲的方式統一各類
-GPU／異質計算設備，並提供軟體級延伸（如 128-bit／256-bit
-原子操作與零拷貝傳輸），突破傳統 GPU 架構的限制。
-
-### ✨ 本版本的核心特色
-
--   **261 個 API 導出函數**（純 RetryIX + cJSON）
--   **五大拓撲類型支援**：Network / Audio / Multimodal / Atomic / SVM
--   **跨廠商統一接口**：CUDA／ROCm／oneAPI／Vulkan
--   **全核心模組 100% 完整實作**
--   **GPU ↔ Network 零拷貝傳輸支援**
--   **完整 SVM（Shared Virtual Memory）支援與高對齊記憶體系統**
--   **軟體級 128-bit 與 256-bit 原子操作（超越硬體規格）**
-
-------------------------------------------------------------------------
-
+# 🇨🇳 中文版本  
 # 🇺🇸 English Version
 
-## Overview
+> **格式說明：**  
+> **每個章節皆為 中英對照｜English follows Chinese**
 
-RetryIX v3.0.0 is a **fully original OpenCL-style compute system**, not
-a wrapper and not based on any existing OpenCL/CUDA implementation.
+---
 
-### Key Features
+## 🔥 概要｜Overview
 
--   261 exported functions\
--   Unified interface for CUDA/ROCm/oneAPI/Vulkan\
--   Zero-copy GPU↔network transfer\
--   Full SVM memory engine\
--   Software‑based 128‑bit and 256‑bit atomics
+**中文：**  
+RetryIX v3.0.0 是一套 **完全原創、非 wrapper** 的 OpenCL 風格計算系統──但底層完全自製，並未使用任何 OpenCL／CUDA／ROCm 實作。  
+其目的在於：以軟體方式統一不同 GPU／異質設備，並提供超越硬體限制的功能（128-bit／256-bit 原子操作、零拷貝拓撲、多模態架構等）。
 
-------------------------------------------------------------------------
+**English:**  
+RetryIX v3.0.0 is a **fully original compute and memory system** inspired by OpenCL—but **not** a wrapper and **not** built on top of OpenCL, CUDA, or ROCm.  
+Its goal is to unify heterogeneous compute devices across vendors while enabling **software-defined capabilities beyond hardware limits**, such as 128-bit/256-bit atomics, zero-copy network paths, and multimodal topology processing.
 
-**RetryIX v3.0 --- Software-defined GPU capability beyond hardware
-limits.**
+---
+
+## ✨ 核心特色｜Key Features
+
+**中文：**
+
+- **261 個 API 導出函數（純 RetryIX）**  
+- **五大拓撲類型**：Network / Audio / Multimodal / Atomic / SVM  
+- **跨廠商統一接口**：CUDA／ROCm／oneAPI／Vulkan  
+- **零拷貝 GPU ↔ Network 傳輸**  
+- **完整 SVM（Shared Virtual Memory）記憶體引擎**  
+- **軟體級 128-bit 與 256-bit 原子操作（超越硬體限制）**  
+
+**English:**
+
+- **261 exported API functions** (native RetryIX)  
+- **Five topology classes:** Network / Audio / Multimodal / Atomic / SVM  
+- **Unified interface across vendors:** CUDA, ROCm, oneAPI, Vulkan  
+- **True zero-copy GPU ↔ network transfer**  
+- **Full SVM memory engine with precise alignment**  
+- **Software 128-bit & 256-bit atomic operations (beyond hardware limits)**  
+
+---
+
+## ⚠️ 重要聲明｜Important Notice
+
+**中文：**  
+RetryIX 雖採 OpenCL 風格 API，但底層完全自製，**不是 OpenCL、不是 ROCm、不是 CUDA** 的任何變體。  
+
+**English:**  
+RetryIX uses an OpenCL-style API surface, but the implementation is fully original.  
+It is **not** based on OpenCL, **not** based on CUDA, and **not** derived from ROCm in any form.
+
+---
+
+## 📁 目錄結構｜Directory Structure
+
+```
+retryix_production/
+├── src/                    # 核心源碼 / Core sources
+│   ├── retryix.c          # 主入口 / main entry
+│   ├── retryix_compat.c   # 兼容層 / compatibility layer
+│   ├── core/              # 核心 API / Core APIs
+│   ├── device/            # 設備管理 / Device manager
+│   ├── host/              # Host 端 / Host-side logic
+│   ├── kernel/            # Kernel 管理 / Kernel manager
+│   ├── memory/            # 記憶體系統 / Memory engine
+│   ├── svm/               # SVM + 原子操作 / SVM & Atomics
+│   └── comm/              # 通訊／零拷貝 / Zero-copy & Comm
+├── include/               # 標頭文件 / Header files
+├── examples/              # 示例程式 / Examples
+├── lib/                   # 靜態／動態庫 / Libraries
+├── bin/                   # 測試與工具 / Binaries & tests
+└── build_modular.bat      # MSVC 編譯腳本（無需 OpenCL）/ Build script
+```
+
+**中文：** 17 個源碼 + 17 個標頭 → 生產級乾淨代碼庫  
+**English:** 17 source files + 17 headers → clean production-ready codebase
+
+---
+
+## 🚀 快速開始｜Quick Start
+
+### 1. 編譯示例程式｜Build Examples
+```cmd
+build_clean.bat
+```
+
+### 2. 編譯 RetryIX 主庫（無需 OpenCL）｜Build Full RetryIX Library (No OpenCL Needed)
+```cmd
+build_modular.bat
+```
+
+### 3. 執行測試｜Run Tests
+```cmd
+bin\test_256bit_atomic.exe
+bin\stress_test_256bit_atomic.exe
+bin\stress_test_128bit_atomic.exe
+```
+
+**English:** All tests expected to pass:
+- 128-bit: 17–18M ops/s  
+- 256-bit: 19–23M ops/s  
+- 64-thread concurrency: zero corruption  
+
+---
+
+## 📚 核心功能說明｜Core Functionality
+
+### 1️⃣ SVM 記憶體系統｜SVM Memory Engine
+
+**中文：**
+- 完整 Shared Virtual Memory  
+- 256-byte alignment  
+- 8GB 虛擬裝置空間  
+- 追蹤分配／釋放／統計  
+
+**English:**
+- Full Shared Virtual Memory  
+- 256-byte alignment  
+- 8GB virtual device address space  
+- Full allocation/free tracking  
+
+---
+
+### 2️⃣ 軟體級原子操作｜Software Atomics
+
+| Bit Width | CUDA HW | RetryIX |
+|----------:|:-------:|:-------:|
+| 32        | Yes     | Yes     |
+| 64        | Yes     | Yes     |
+| 128       | No      | **Yes (software atomic)** |
+| 256       | No      | **Yes (pair-CAS)** |
+
+**中文：** 全部具備順序一致性（Sequential Consistency）。  
+**English:** All atomics guarantee Sequential Consistency.
+
+---
+
+### 3️⃣ 快／慢路徑切換｜Fast/Slow Path Switching
+
+**中文：**
+- 快路徑：CPU 原生指令（如 cmpxchg16b）  
+- 慢路徑：跨平台 spinlock  
+- 自動 fallback  
+
+**English:**
+- Fast path: native CPU intrinsics  
+- Slow path: portable spinlock  
+- Automatic fallback  
+
+---
+
+### 4️⃣ GPU ↔ Network 零拷貝｜Zero-Copy GPU ↔ Network
+
+**中文：**
+- GPU buffer 可直接映射至 socket buffer（無 CPU 中轉）  
+- 適合 AI 推論、分散式系統與高頻通訊場景  
+
+**English:**
+- GPU buffers can be mapped directly to socket buffers (no CPU copy)  
+- Ideal for inference, distributed memory, and high-throughput networking
+
+---
+
+## 💻 使用示例｜Usage Example
+
+```c
+#include <retryix.h>
+#include <retryix_svm.h>
+
+int main() {
+    retryix_svm_context_t* ctx = retryix_svm_create_context();
+
+    void* ptr = retryix_svm_alloc(ctx, 1024, RETRYIX_SVM_FINE_GRAIN_BUFFER);
+
+    u128_t val = {0,0}, add = {1,0}, old;
+    retryix_svm_atomic_fetch_add_i128(ctx, (volatile u128_t*)ptr, add, &old);
+
+    retryix_svm_free(ctx, ptr);
+    retryix_svm_destroy_context(ctx);
+}
+```
+
+**中文：** 完整支援 128-bit 自增。  
+**English:** Fully supports 128-bit atomic add.
+
+---
+
+## 📊 測試摘要｜Test Summary
+
+**中文：**
+- 所有測試完全通過  
+- 64 線程：零腐敗  
+
+**English:**
+- All tests pass  
+- Zero corruption under 64-thread stress  
+
+---
+
+## 🛠️ 技術細節｜Technical Details
+
+**中文：**
+- 128-bit：16-byte 對齊  
+- 256-bit：雙 128-bit 對齊  
+- Thread-safe：Windows CriticalSection／POSIX spinlock  
+- 支援 Windows／Linux／macOS（包含 Rosetta）  
+
+**English:**
+- 128-bit: 16-byte aligned  
+- 256-bit: dual 128-bit alignment  
+- Thread-safe: Windows CriticalSection / POSIX spinlock  
+- Supports Windows / Linux / macOS (including Rosetta)
+
+---
+
+## 📝 版本歷史｜Version History
+
+### v3.0.0
+- 新增 128/256-bit 原子  
+- 全自動路徑切換  
+- 完整壓力測試套件  
+
+### v2.x
+- 初版 SVM  
+- 32/64-bit 原子  
+
+---
+
+## 📄 授權條款｜License
+
+**中文：** 本專案採 MIT 授權，可自由商用，請保留授權聲明。  
+**English:** Licensed under the MIT License. Please retain the license header.
+
+---
+
+**RetryIX v3.0 — Software-defined GPU capability beyond all hardware limits.**  
+**RetryIX v3.0 — 軟體定義 GPU，突破所有硬體上限。**
