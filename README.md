@@ -1,3 +1,6 @@
+> **License: MIT License**
+> Released under the MIT License. Free for open‑source and commercial use with attribution.
+
 # RetryIX v3.0.0-preview "Lu Ban"（魯班）
 
 **Official Preview Release｜預覽發布**  
@@ -62,8 +65,7 @@ build_clean.bat
 
 ## 2. 編譯完整 RetryIX 庫
 ```cmd
-build.bat         # MinGW (需 MSYS2)
-build_msvc.bat    # MSVC (需 OpenCL 頭文件)
+build_modular.bat    # MSVC (需 OpenCL 頭文件)
 ```
 
 ## 3. 執行測試套件
@@ -210,3 +212,4 @@ MIT License.
 ---
 
 **RetryIX v3.0 — Software-defined GPU capability beyond hardware limits.**
+
