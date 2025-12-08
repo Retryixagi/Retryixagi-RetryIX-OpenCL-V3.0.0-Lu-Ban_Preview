@@ -228,7 +228,7 @@ int main() {
 - 128-bit：16-byte 對齊  
 - 256-bit：雙 128-bit 對齊  
 - Thread-safe：Windows CriticalSection／POSIX spinlock  
-- 支援 Windows／Linux／macOS（包含 Rosetta）  
+- 支援 Windows
 
 **English:**
 - 128-bit: 16-byte aligned  
