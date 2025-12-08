@@ -1,14 +1,14 @@
 # RetryIX 函數導出摘要
 
-**生成日期**: 2025年12月3日  
+**生成日期**: 2025年12月08日  
 **DLL 版本**: retryix.dll (模塊化生產版)  
-**總函數數**: 261
+**總函數數**: 292
 
 ---
 
 ## 函數分類統計
 
-### 1. cJSON/cJSONUtils (78 函數)
+### 1. cJSON/cJSONUtils (92 函數)
 - **cJSON 核心**: 48 函數 (JSON 解析、創建、操作)
 - **cJSONUtils**: 30 函數 (JSON Patch、Merge、Pointer 操作)
 
@@ -149,11 +149,11 @@ retryix_zerocopy_net_to_gpu(src_ip, src_port, gpu_buffer, size);
 
 ## 檔案信息
 
-- **完整導出表**: `lib/exports_full.txt` (289 行)
+- **完整導出表 (dumpbin)**: `lib/retryix_exports_dumpbin2.txt` (292 exports)
 - **DLL 位置**: `lib/retryix.dll`
 - **導入庫**: `lib/libretryix.dll.a` (MinGW), `lib/retryix.lib` (MSVC)
 - **備份**: `lib/exports_full_backup.txt` (舊版 192 函數)
 
 ---
 
-**[Lu Ban @ 2025-12-03]** - 模塊化生產版本，完整拓撲能力，261 個導出函數
+**[Lu Ban @ 2025-12-08]** - 模塊化生產版本，完整拓撲能力，292 個導出函數
