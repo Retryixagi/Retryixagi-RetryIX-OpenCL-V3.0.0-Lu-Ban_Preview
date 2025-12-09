@@ -1,0 +1,25 @@
+[Version]
+Signature="$Windows NT$"
+Class=Sample
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%Mfg%
+DriverVer=12/08/2025,1.0.0.0
+
+[Manufacturer]
+%Mfg%=Standard,NTamd64
+
+[Standard.NTamd64]
+%VirtualDrv.DeviceDesc%=DriverInstall, Root\VirtualRetryix
+
+[DriverInstall]
+CopyFiles=DriverCopyFiles
+
+[DriverCopyFiles]
+
+[SourceDisksNames]
+1 = %DiskName%,,,
+
+[Strings]
+Mfg="RetryIX Test Drivers"
+DiskName="Virtual RetryIX driver"
+VirtualDrv.DeviceDesc="RetryIX Virtual Driver (test layer)"
